@@ -62,5 +62,5 @@ This application was built by Daryl, you can find and contact me through my [Git
 
 ## License
 
-This application is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-pink.svg)](https://opensource.org/licenses/MIT)
+This application is licensed under the [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 
