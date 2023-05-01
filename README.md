@@ -54,7 +54,11 @@ To use the application, send HTTP requests to the appropriate endpoints using a 
 ## Deployment
 
 * The application is not deployed live, but the source code can be found on Github [here](https://github.com/darylbg/ecommerce-backend)
-* A Walk through video demonstrating the use of the application can be found on Youtube [here](https://www.youtube.com/watch?v=PFVIfOYvYBo)
+* A Walk through video demonstrating the use of the application can be found on Youtube [here](https://www.youtube.com/watch?v=PFVIfOYvYBo)<br><br>
+Examples of GET, PUT, POST, and DELETE routes for enpoints Categories, Products and Tags:
+![categories gif](assets/categories.gif)
+![products gif](assets/products.gif)
+![tags gif](assets/tags.gif)
 
 ## Credits
 
