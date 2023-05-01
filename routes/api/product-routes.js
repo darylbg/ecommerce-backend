@@ -32,7 +32,8 @@ router.get('/:id', async (req, res) => {
       ]
     });
     if(!product) {
-      res.status(400).json({message: 'no product found with that id'})
+      res.status(400).send(`No product with that id found`);
+      return;
     }
     res.status(200).json(product);
   } catch (error) {
@@ -42,14 +43,6 @@ router.get('/:id', async (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -65,7 +58,7 @@ router.post('/', (req, res) => {
       // if no product tags, just respond
       res.status(200).json(product);
     })
-    .then((productTagIds) => res.status(200).json(productTagIds))
+    .then((productTagIds) => res.status(200).send(`Successfully created a new product`))
     .catch((err) => {
       console.log(err);
       res.status(400).json(err);
@@ -117,18 +110,26 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete one product by its `id` value
   try {
-    const deleteProduct = await Product.destroy({
+    const deletedProduct = await Product.findOne({
       where:{
         id: req.params.id
       }
     });
-    if(!deleteProduct) {
-      res.status(400).json({message: 'no product with that id'})
+    if(!deletedProduct) {
+      res.status(400).send(`no product with that id found`);
+      return;
     }
-    res.status(200).json({message: 'successfully deleted a product'})
+    await Product.destroy({
+      where:{
+        id: req.params.id
+      }
+    });
+    console.log(deletedProduct);
+    res.status(200).send(`Successfully deleted product: ${deletedProduct.product_name}`)
   } catch (error) {
     res.status(500).json(error);
   }
 });
+
 
 module.exports = router;
