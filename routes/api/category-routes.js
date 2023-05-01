@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
       {include: [{ model: Product }]}
     );
     if(!categoryById) {
-      res.status(400).json({message: 'no category with that id found'});
+      res.status(400).send(`No category with that id found`);
       return;
     }
     res.status(200).json(categoryById);
@@ -55,7 +55,7 @@ router.put('/:id', async (req, res) => {
       res.status(400).send(`No category with that id found`);
       return;
     }
-    res.status(200).json(updatedCategory);
+    res.status(200).send('Successfully updated category');
   } catch (error) {
     res.status(500).json(error);
   }

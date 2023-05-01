@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
     const updateTag = await tag.update({
       tag_name: req.body.tag_name
       });
-      res.status(200).json(updateTag);
+      res.status(200).send(`Successfully updated tag`);
     if(!tag) {
       res.status(400).send(`No tag with that id found`);
       return;
@@ -63,7 +63,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   // delete on tag by its `id` value
   try {
-    const deleteTag = Tag.findOne({
+    const deleteTag = await Tag.findOne({
       where: {
         id: req.params.id
       }
@@ -77,7 +77,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    res.status(200).send(`Successfully deleted ${deleteTag.tag_name} tag`)
+    res.status(200).send(`Successfully deleted tag: ${deleteTag.tag_name}`)
   } catch (error) {
     res.status(500).json(error);
   }
