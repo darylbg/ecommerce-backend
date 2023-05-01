@@ -54,7 +54,7 @@ To use the application, send HTTP requests to the appropriate endpoints using a 
 ## Deployment
 
 * The application is not deployed live, but the source code can be found on Github [here](https://github.com/darylbg/ecommerce-backend)
-* A Walk through video demonstrating the use of the application can be found on Youtube [here]()
+* A Walk through video demonstrating the use of the application can be found on Youtube [here](https://www.youtube.com/watch?v=PFVIfOYvYBo)
 
 ## Credits
 
